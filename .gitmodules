@@ -1,0 +1,12 @@
+[submodule "mecanum_controller"]
+	path = src/mecanum_controller
+	url = git@github.com:autonomous-embedded/mecanum_controller.git
+	branch = master
+[submodule "mecanum_driver"]
+	path = src/mecanum_driver
+	url = git@github.com:autonomous-embedded/mecanum_driver.git
+	branch = master
+[submodule "realsense-ros"]
+	path = src/realsense-ros
+	url = git@github.com:autonomous-embedded/realsense-ros.git
+	branch = ros1-legacy
