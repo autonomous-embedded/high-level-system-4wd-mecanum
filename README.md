@@ -41,7 +41,7 @@ For example, change:
 
 ```ini
 [submodule "mecanum_controller"]
-	path = mecanum_controller
+	path = src/mecanum_controller
 	url = git@github.com:autonomous-embedded/mecanum_controller.git
 	branch = master
 ```
@@ -50,7 +50,7 @@ to:
 
 ```ini
 [submodule "mecanum_controller"]
-	path = mecanum_controller
+	path = src/mecanum_controller
 	url = https://github.com/autonomous-embedded/mecanum_controller.git
 	branch = master
 ```
@@ -74,4 +74,62 @@ Replace `'URL-to-repo'` with the actual URL of the submodule's repository and `p
 
 By following these steps, you can clone the "ros_workspace" repository with its submodules and add new submodules to your project.
 
-## Launching ROS nodes
+## Setting up ROS Noetic Catkin Workspace
+
+After cloning the "ros_workspace" repository, follow the steps below to set up the ROS Noetic catkin workspace:
+
+### Step 1: Initialize Workspace
+
+Navigate into the repository's directory:
+
+```bash
+cd ros_workspace
+```
+
+Initialize the catkin workspace using:
+
+```bash
+catkin_make
+```
+
+**Note:** If `catkin_make` fails due to uninstalled dependencies related to `realsense-ros`, please refer to the installation process described in [src/realsense-ros/README.md](src/realsense-ros/README.md).
+
+### Step 2: Source Setup
+
+After successfully initializing the workspace, source the setup script:
+
+```bash
+source devel/setup.sh
+```
+
+### Step 3: Start ROS Core (roscore)
+
+Ensure that the ROS core is running by executing:
+
+```bash
+roscore
+```
+
+This command starts the ROS master server.
+
+### Step 4: Run Specific Node
+
+To run a specific node from a package, use the `rosrun` command. For example:
+
+```bash
+rosrun mecanum_controller node
+```
+
+Replace `mecanum_controller` with the actual package name, and `node` with the executable you want to run.
+
+### Step 5: Start Camera Node
+
+This project involves a camera node (from `realsense-ros`), start it using the provided launch file:
+
+```bash
+roslaunch realsense2_camera rs_camera.launch
+```
+
+**Note:** To verify the proper functionality of the camera node by running the `rviz` application.
+
+You have now set up your ROS Noetic catkin workspace and are ready to run and develop your ROS nodes. If you encounter any issues, please refer to the specific README files in each package or module for further instructions.
