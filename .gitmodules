@@ -10,6 +10,3 @@
 	path = src/realsense-ros
 	url = git@github.com:autonomous-embedded/realsense-ros.git
 	branch = ros1-legacy
-[submodule "src/realsense-ros"]
-	path = src/realsense-ros
-	url = git@github.com:autonomous-embedded/realsense-ros.git
