@@ -1,4 +1,4 @@
-[submodule "mecanum_controller"]
+[submodule "src/mecanum_controller"]
 	path = src/mecanum_controller
 	url = git@github.com:autonomous-embedded/mecanum_controller.git
 	branch = master
@@ -10,3 +10,6 @@
 	path = src/realsense-ros
 	url = git@github.com:autonomous-embedded/realsense-ros.git
 	branch = ros1-legacy
+[submodule "src/realsense-ros"]
+	path = src/realsense-ros
+	url = git@github.com:autonomous-embedded/realsense-ros.git
