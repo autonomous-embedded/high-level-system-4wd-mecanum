@@ -1,0 +1,18 @@
+<launch>
+    <node name="controller" pkg="mecanum_controller" type="node" respawn="false">
+        <remap from="/device_0/sensor_1/Color_0/image/data" to="/camera/color/image_raw" /> 
+    </node>
+    <node name="driver" pkg="mecanum_driver" type="node.py" respawn="true"/>
+    <include file="$(find realsense2_camera)/launch/rs_camera.launch">
+        <arg name="initial_reset" value="True"/> 
+        <arg name="enable_accel" value="False"/> 
+        <arg name="enable_color" value="True"/> 
+        <arg name="enable_confidence" value="False"/> 
+        <arg name="enable_depth" value="False"/> 
+        <arg name="enable_gyro" value="False"/> 
+        <arg name="enable_infra1" value="False"/> 
+        <arg name="enable_infra2" value="False"/> 
+        <arg name="enable_pointcloud" value="False"/> 
+        <arg name="enable_sync" value="False"/>
+    </include>
+</launch>
