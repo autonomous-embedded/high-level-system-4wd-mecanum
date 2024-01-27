@@ -10,3 +10,7 @@
 	path = src/realsense-ros
 	url = git@github.com:autonomous-embedded/realsense-ros.git
 	branch = ros1-legacy
+[submodule "src/vision_opencv"]
+	path = src/vision_opencv
+	url = git@github.com:ros-perception/vision_opencv.git
+	branch = noetic
