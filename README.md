@@ -1,135 +1,26 @@
-# Embedded Autonomous Car - Workspace
+# Embedded Autonomous Mecanum Car - Workspace
 
 ## Cloning the Repository with Submodules
 
-To properly clone the "ros_workspace" repository, which contains submodules (`mecanum_controller`, `mecanum_driver`, and `realsense-ros`), follow the steps below.
-
-### Step 1: Clone the Repository
-
-```bash
-git clone --recurse-submodules git@github.com:autonomous-embedded/ros_workspace.git
-```
-
-If you forget the `--recurse-submodules` flag during cloning, you can initialize and update submodules manually after cloning:
-
-```bash
-# Navigate into the repository's directory
-cd ros_workspace
-
-# Initialize and update submodules
-git submodule init
-git submodule update
-```
-
-### Step 2: Verify Submodules
-
-To ensure that the submodules have been cloned successfully, you can check the contents of the `mecanum_controller`, `mecanum_driver`, and `realsense-ros` directories:
-
-```bash
-ls mecanum_controller
-ls mecanum_driver
-ls realsense-ros
-```
-
-You should see the content of each submodule's repository.
-
-### Step 3: Cloning with HTTPS (Optional)
-
-If you encounter permission issues or if you prefer using HTTPS, you can modify the submodule URLs in the `.gitmodules` file. Change the `url` values from `git@github.com:...` to `https://github.com/...`.
-
-For example, change:
-
-```ini
-[submodule "mecanum_controller"]
-	path = src/mecanum_controller
-	url = git@github.com:autonomous-embedded/mecanum_controller.git
-	branch = master
-```
-
-to:
-
-```ini
-[submodule "mecanum_controller"]
-	path = src/mecanum_controller
-	url = https://github.com/autonomous-embedded/mecanum_controller.git
-	branch = master
-```
-
-Repeat this modification for each submodule.
-
-## Adding New Submodule to the Project
-
-To add a new submodule to your project, follow these steps:
-
-```bash
-# Add the submodule with its URL and desired path
-git submodule add 'URL-to-repo' path/to/submodule
-
-# Initialize and update the submodule
-git submodule init
-git submodule update
-```
-
-Replace `'URL-to-repo'` with the actual URL of the submodule's repository and `path/to/submodule` with the desired path where you want to place the submodule within your project.
-
-By following these steps, you can clone the "ros_workspace" repository with its submodules and add new submodules to your project.
+To clone the repository, run: `git clone --recurse-submodules git@github.com:autonomous-embedded/high-level-system-4wd-mecanum.git`. Don't use HTTP...
 
 ## Setting up ROS Noetic Catkin Workspace
 
-After cloning the "ros_workspace" repository, follow the steps below to set up the ROS Noetic catkin workspace:
+The root directory of this repository represents a [catkin workspace](http://wiki.ros.org/catkin/workspaces).
 
-### Step 1: Initialize Workspace
+## Building the software
 
-Navigate into the repository's directory:
+To build the packages, run: `catkin_make` in the root of this repository. If you're cloning from `mecanum_integration`, you can also run: `cd $MECANUM_HL_PATH; catkin_make;` after sourcing the `environment-check.sh` script.
 
-```bash
-cd ros_workspace
-```
+## devel/setup.sh script
 
-Initialize the catkin workspace using:
+The `<ros_workspace>/devel/setup.sh` script will setup all of the necessary paths, autocompletions etc., so you can run the commands below...
 
-```bash
-catkin_make
-```
+## Running the high-level software
 
-**Note:** If `catkin_make` fails due to uninstalled dependencies related to `realsense-ros`, please refer to the installation process described in [src/realsense-ros/README.md](src/realsense-ros/README.md).
+To run the software, simply run: `roslaunch mecanum_bringup mecanum_vision.launch`. You can run this from anywhere basically once you've sourced the `devel/setup.sh` script. If you're cloning from `mecanum_integration` you can also run the `mecanum-hl-run.sh` script, which should source the `devel/setup.sh` script for you.
 
-### Step 2: Source Setup
+## Debugging
 
-After successfully initializing the workspace, source the setup script:
+Simple print debugging. Good luck!
 
-```bash
-source devel/setup.sh
-```
-
-### Step 3: Start ROS Core (roscore)
-
-Ensure that the ROS core is running by executing:
-
-```bash
-roscore
-```
-
-This command starts the ROS master server.
-
-### Step 4: Run Specific Node
-
-To run a specific node from a package, use the `rosrun` command. For example:
-
-```bash
-rosrun mecanum_controller node
-```
-
-Replace `mecanum_controller` with the actual package name, and `node` with the executable you want to run.
-
-### Step 5: Start Camera Node
-
-This project involves a camera node (from `realsense-ros`), start it using the provided launch file:
-
-```bash
-roslaunch realsense2_camera rs_camera.launch
-```
-
-**Note:** To verify the proper functionality of the camera node by running the `rviz` application.
-
-You have now set up your ROS Noetic catkin workspace and are ready to run and develop your ROS nodes. If you encounter any issues, please refer to the specific README files in each package or module for further instructions.
