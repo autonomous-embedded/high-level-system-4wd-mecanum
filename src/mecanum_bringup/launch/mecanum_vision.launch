@@ -1,5 +1,5 @@
 <launch>
     <node name="controller" pkg="mecanum_controller" type="node" output="screen" respawn="false"/>
-    <node name="driver" pkg="mecanum_driver" type="node.py" respawn="true"/>
+    <node name="driver" pkg="mecanum_driver" type="node" output="screen" respawn="true"/>
     <include file="$(find realsense2_camera)/launch/rs_camera.launch"/>
 </launch>
