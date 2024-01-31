@@ -3,20 +3,19 @@
         {
             "name": "Linux",
             "includePath": [
+                "${workspaceFolder}/**",
                 "/usr/include",
                 "/usr/local/include",
+                "/usr/aarch64-linux-gnu/include",
                 "/opt/ros/noetic/include",
                 "/usr/include/opencv4",
-                "/usr/include/x86_64-linux-gnu/c++/9",
-                "/usr/aarch64-linux-gnu/include",
                 "${workspaceFolder}/src/mecanum_controller/include",
                 "${workspaceFolder}/src/mecanum_driver/mecanum-if"
             ],
             "defines": [],
             "cStandard": "c17",
             "cppStandard": "c++14",
-            "intelliSenseMode": "linux-gcc-x86",
-            "compilerArgs": []
+            "intelliSenseMode": "linux-clang-x64"
         }
     ],
     "version": 4
