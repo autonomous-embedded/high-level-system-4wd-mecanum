@@ -17,3 +17,6 @@
 [submodule "src/mecanum-if"]
 	path = src/mecanum-if
 	url = git@github.com:autonomous-embedded/mecanum-if.git
+[submodule "tests/mecanum_if"]
+	path = tests/mecanum_if
+	url = git@github.com:autonomous-embedded/mecanum-if.git
