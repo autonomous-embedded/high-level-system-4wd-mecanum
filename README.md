@@ -2,7 +2,21 @@
 
 ## Cloning the Repository with Submodules
 
-To clone the repository, run: `git clone --recurse-submodules git@github.com:autonomous-embedded/high-level-system-4wd-mecanum.git`. Don't use HTTP...
+To clone the repository with submodules, run: 
+```bash 
+git clone --recurse-submodules git@github.com:autonomous-embedded/high-level-system-4wd-mecanum.git
+```
+Don't use HTTP...
+
+If you forget the `--recurse-submodules` flag during cloning, you can initialize and update submodules manually after cloning:
+```bash
+# Navigate into the repository's directory
+cd high-level-system-4wd-mecanum
+
+# Initialize and update submodules
+git submodule init
+git submodule update
+```
 
 ## Setting up ROS Noetic Catkin Workspace
 
