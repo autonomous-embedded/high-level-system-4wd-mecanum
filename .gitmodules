@@ -20,3 +20,6 @@
 [submodule "tests/mecanum_if"]
 	path = tests/mecanum_if
 	url = git@github.com:autonomous-embedded/mecanum-if.git
+[submodule "librealsense-2.50.0"]
+	path = librealsense-2.50.0
+	url = git@github.com:IntelRealSense/librealsense.git
