@@ -1,0 +1,10 @@
+{
+    "files.associations": {
+        "cstdio": "cpp",
+        "utility": "cpp",
+        "chrono": "cpp"
+    },
+    "C_Cpp.default.compilerPath": "/usr/lib/ccache/g++-9",
+    "C_Cpp.codeAnalysis.clangTidy.config": ".clang-tidy",
+    "C_Cpp.codeAnalysis.clangTidy.enabled": true
+}
